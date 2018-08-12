@@ -2,18 +2,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static java.lang.Thread.sleep;
+
 public class LinkedinLoginPage {
 
-    WebDriver browser;
-    WebElement userEmailField;
-    WebElement userPasswordField ;
-    WebElement signInButton ;
+    private WebDriver browser;
+
+    private WebElement userEmailField;
+    private WebElement userPasswordField ;
+    private WebElement signInButton ;
 
     public LinkedinLoginPage(WebDriver browser) {
         this.browser = browser;
         initElements();
     }
-    public void initElements(){
+    private void initElements(){
         userEmailField = browser.findElement(By.xpath("//*[@id='login-email']"));
         userPasswordField = browser.findElement(By.xpath("//*[@id='login-password']"));
         signInButton = browser.findElement(By.xpath("//*[@id='login-submit']"));
@@ -22,6 +25,11 @@ public class LinkedinLoginPage {
         userEmailField.sendKeys(userEmail);
         userPasswordField.sendKeys(userPass);
         signInButton.click();
+        try {
+            sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 
