@@ -30,5 +30,6 @@ public class LinkedinHomePage {
         return profileNavigationItem.isDisplayed() && getCurrentPageTitle().contains("LinkedIn") && getCurrentPageUrl().contains("/feed/");
 
     }
+
 }
 
